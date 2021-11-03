@@ -26,13 +26,20 @@ const RestoMenu = () => {
               Pasti ada sesuatu buat tiap orang!
             </h1>
             <div className="grid grid-cols-2 lg:grid-cols-4">
-              {restomenu.map((menu, index) => (
-                <div className="m-4 bg-white shadow-lg p-4" key={index}>
-                  <h1>{menu.reme_name}</h1>
-                  <h2>{formatRp(menu.reme_price)}</h2>
-                  <h3>{menu.reme_desc}</h3>
-                </div>
-              ))}
+              {restomenu &&
+                restomenu.map((menu, index) => (
+                  <div
+                    className="m-4 bg-white shadow-lg p-4 rounded-lg"
+                    key={index}
+                  >
+                    <h1 className="truncate text-md mb-2 font-bold">
+                      {menu.reme_name}
+                    </h1>
+                    <p className="text-xs text-gray-500">
+                      {formatRp(menu.reme_price)}
+                    </p>
+                  </div>
+                ))}
             </div>
           </div>
         ) : (

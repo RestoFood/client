@@ -1,7 +1,7 @@
 import * as ActionType from "../constants/resto-menu";
 // initial data
 const INIT_STATE = {
-  restomenu: [],
+  restomenu: null,
   isLoading: false,
   error: null,
   status: null,

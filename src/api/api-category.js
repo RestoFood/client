@@ -40,20 +40,22 @@ const updateRow = async (data) => {
   }
 };
 
-const deleteRow = async (id) => {
+const deleteRow = async (name) => {
   try {
-    const result = await axios.delete(`${config.domain}/category/${id}`);
+    const result = await axios.delete(`${config.domain}/restoctgry/${name}`);
     return result;
   } catch (error) {
     return error;
   }
 };
 
-// eslint-disable-next-line import/no-anonymous-default-export
-export default {
+const apiCategory = {
   list,
   createRow,
   findRow,
   updateRow,
   deleteRow,
 };
+
+// eslint-disable-next-line import/no-anonymous-default-export
+export default apiCategory;

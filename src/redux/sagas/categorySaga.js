@@ -56,7 +56,9 @@ function* handleDeleteCategory(action) {
   try {
     const result = yield call(apiCategory.deleteRow, payload);
     //simpan ke redux store
-    yield put(doDeleteCategorySucceed({ id: payload, status: result.status }));
+    yield put(
+      doDeleteCategorySucceed({ name: payload, status: result.status })
+    );
   } catch (error) {
     yield put(doCategoryFailed(error));
   }
