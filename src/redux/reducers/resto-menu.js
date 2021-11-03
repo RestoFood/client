@@ -1,0 +1,49 @@
+import * as ActionType from "../constants/resto-menu";
+// initial data
+const INIT_STATE = {
+  restomenu: [],
+  isLoading: false,
+  error: null,
+  status: null,
+};
+
+// create reducer
+const restoMenuReducer = (state = INIT_STATE, action) => {
+  switch (action.type) {
+    case ActionType.GET_RESTOMENU_REQUEST:
+      return applyGetRestoMenuRequest(state, action);
+    case ActionType.GET_RESTOMENU_SUCCEED:
+      return applyGetRestoMenuSucceed(state, action);
+    case ActionType.GET_RESTOMENU_FAILED:
+      return applyGetRestoMenuFailed(state, action);
+
+    default:
+      return state;
+  }
+};
+
+//action reducer
+const applyGetRestoMenuRequest = (state, action) => {
+  return {
+    ...state,
+    isLoading: true,
+  };
+};
+
+const applyGetRestoMenuSucceed = (state, action) => {
+  return {
+    ...state,
+    restomenu: action.payload,
+    isLoading: false,
+  };
+};
+
+const applyGetRestoMenuFailed = (state, action) => {
+  return {
+    ...state,
+    isLoading: false,
+    error: action.payload.error,
+  };
+};
+
+export default restoMenuReducer;
