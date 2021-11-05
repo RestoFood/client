@@ -10,8 +10,18 @@ const allRestoMenu = async () => {
   }
 };
 
+const allRestoMenubyRetoId = async (id) => {
+  try {
+    const response = await axios.get(`${config.domain}/restomenu/reto/${id}`);
+    return response.data;
+  } catch (error) {
+    return await error.message;
+  }
+};
+
 const apiRestoMenu = {
   allRestoMenu,
+  allRestoMenubyRetoId,
 };
 
 export default apiRestoMenu;

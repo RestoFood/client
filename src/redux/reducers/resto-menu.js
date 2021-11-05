@@ -16,7 +16,10 @@ const restoMenuReducer = (state = INIT_STATE, action) => {
       return applyGetRestoMenuSucceed(state, action);
     case ActionType.GET_RESTOMENU_FAILED:
       return applyGetRestoMenuFailed(state, action);
-
+    case ActionType.GET_RESTOMENUBYRESTO_REQUEST:
+      return applyGetRestoMenuByRestoRequest(state, action);
+    case ActionType.GET_RESTOMENUBYRESTO_SUCCEED:
+      return applyGetRestoMenuByRestoSucceed(state, action);
     default:
       return state;
   }
@@ -43,6 +46,21 @@ const applyGetRestoMenuFailed = (state, action) => {
     ...state,
     isLoading: false,
     error: action.payload.error,
+  };
+};
+
+const applyGetRestoMenuByRestoRequest = (state, action) => {
+  return {
+    ...state,
+    isLoading: true,
+  };
+};
+
+const applyGetRestoMenuByRestoSucceed = (state, action) => {
+  return {
+    ...state,
+    restomenu: action.payload,
+    isLoading: false,
   };
 };
 

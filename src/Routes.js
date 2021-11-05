@@ -9,6 +9,7 @@ import {
   Category as CategoryPage,
   Product as ProductPage,
   PageNotFound,
+  Resto,
 } from "./pages";
 
 import SignUp from "./components/SignUp";
@@ -30,6 +31,15 @@ const Routes = () => {
         pageTitle=""
         path="/home"
       />
+
+      <RouteWithLayout
+        component={Resto}
+        exact
+        layout={MainLayout}
+        pageTitle=""
+        path="/resto/:id"
+      />
+
       <RouteWithLayout
         component={PageNotFound}
         exact

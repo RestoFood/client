@@ -14,3 +14,13 @@ export const doRestoMenuFailed = (payload) => ({
   type: ActionType.GET_RESTOMENU_FAILED,
   payload,
 });
+
+export const doRestoMenuByRestoRequest = (payload) => ({
+  type: ActionType.GET_RESTOMENUBYRESTO_REQUEST,
+  payload,
+});
+
+export const doRestoMenuByRestoSucceed = (payload) => ({
+  type: ActionType.GET_RESTOMENUBYRESTO_SUCCEED,
+  payload,
+});
